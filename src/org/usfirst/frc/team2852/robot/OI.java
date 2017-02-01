@@ -5,6 +5,7 @@ package org.usfirst.frc.team2852.robot;
 import org.usfirst.frc.team2852.robot.commands.AllDown;
 import org.usfirst.frc.team2852.robot.commands.shiftDown;
 import org.usfirst.frc.team2852.robot.commands.shiftUp;
+import org.usfirst.team2852.robot.util.XboxTrigger;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -21,11 +22,15 @@ public class OI {
 	Button b = new JoystickButton(xbox1, 2);
 	Button x = new JoystickButton(xbox1, 3);
 	Button y = new JoystickButton(xbox1, 4);
-//	Button clickLeft = new JoystickButton(xbox1, );
-//	Button clickRight = new JoystickButton(xbox1, );
 	
 	Button lBump = new JoystickButton(xbox1, 5);
 	Button rBump = new JoystickButton(xbox1, 6);
+	
+	Button clickLeft = new JoystickButton(xbox1, 9);
+	Button clickRight = new JoystickButton(xbox1, 10);
+	
+	XboxTrigger leftTrig = new XboxTrigger(xbox1, 2);
+	XboxTrigger rightTrig = new XboxTrigger(xbox1, 3);
 	
 	public OI() {
 	rBump.whenPressed(new shiftUp());	
