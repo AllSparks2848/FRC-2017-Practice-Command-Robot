@@ -9,6 +9,7 @@ import org.usfirst.frc.team2852.robot.commands.shiftUp;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,25 +21,28 @@ public class OI {
 	Button b = new JoystickButton(xbox1, 2);
 	Button x = new JoystickButton(xbox1, 3);
 	Button y = new JoystickButton(xbox1, 4);
-	
-	
-
+//	Button clickLeft = new JoystickButton(xbox1, );
+//	Button clickRight = new JoystickButton(xbox1, );
 	
 	Button lBump = new JoystickButton(xbox1, 5);
 	Button rBump = new JoystickButton(xbox1, 6);
 	
 	public OI() {
-	
-	if(xbox1.getRawAxis(3) > 1){
-		new AllDown();
-	}
-	if(xbox1.getRawAxis(4) > 1){
-		new AllDown();
-	}
-		
 	rBump.whenPressed(new shiftUp());	
 	lBump.whenPressed(new shiftDown());
 	}
+	
+	public double getLeftJoystick() {
+		return xbox1.getRawAxis(1);
+	}
+	
+	public double getRightJoystick() {
+		return xbox1.getRawAxis(4);
+	}
+	
+	//D-pad: if(xbox1.getPOV==Angle) --> new Command();
+	//Trigger: Create Trigger, then use ".whileActive(new Command());"
+	
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.

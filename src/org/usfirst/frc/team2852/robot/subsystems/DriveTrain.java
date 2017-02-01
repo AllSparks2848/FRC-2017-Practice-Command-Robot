@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2852.robot.subsystems;
 
 import org.usfirst.frc.team2852.robot.RobotMap;
+import org.usfirst.frc.team2852.robot.commands.ArcadeDrive;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -20,14 +20,8 @@ public class DriveTrain extends PIDSubsystem {
 	RobotDrive drive1 = new RobotDrive(leftDrive1, leftDrive2, rightDrive1, rightDrive2);
 	RobotDrive drive2 = new RobotDrive(leftDrive3, rightDrive3);
 	
-	//////////////////////////////////////
-	
-	Solenoid frontLeftButterfly = new Solenoid(RobotMap.p_frontLeftButterfly);
-	Solenoid frontRightButterfly = new Solenoid(RobotMap.p_frontRightButterfly);
-	Solenoid backLeftButterfly = new Solenoid(RobotMap.p_backLeftButterfly);
-	Solenoid backRightButterfly = new Solenoid(RobotMap.p_backRightButterfly);
-	
-	////////////////////////////////////////
+	Solenoid frontButterfly = new Solenoid(RobotMap.p_frontButterfly);
+	Solenoid backButterfly = new Solenoid(RobotMap.p_backButterfly);
 	
 	private static double pDrive = .07;
 	private static double iDrive = 0;
@@ -35,7 +29,6 @@ public class DriveTrain extends PIDSubsystem {
 	
 	public static Encoder rightEncoder = new Encoder(RobotMap.p_rightEncoderA, RobotMap.p_rightEncoderB, false, Encoder.EncodingType.k4X);
 	public static Encoder leftEncoder = new Encoder(RobotMap.p_leftEncoderA, RobotMap.p_leftEncoderB, false, Encoder.EncodingType.k4X);
-	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	
     // Initialize your subsystem here
     public DriveTrain() {
@@ -45,7 +38,7 @@ public class DriveTrain extends PIDSubsystem {
     }
 
     public void initDefaultCommand() {
-        // 
+         setDefaultCommand(new ArcadeDrive());
     }
 
     protected double returnPIDInput() {
@@ -65,24 +58,30 @@ public class DriveTrain extends PIDSubsystem {
     	drive2.tankDrive(left, right);
     }
     
+    public void arcadeDrive(double left, double right){
+    	drive1.arcadeDrive(left, right);
+    	drive2.arcadeDrive(left, right);
+    }
+    
+    public void setPowerZero(){
+    	drive1.setLeftRightMotorOutputs(0, 0);;
+    	drive2.setLeftRightMotorOutputs(0, 0);
+    }
+    
     public void frontOmnisDown() {
-    	frontLeftButterfly.set(true);
-    	frontRightButterfly.set(true);
+    	frontButterfly.set(true);
     }
     
     public void backOmnisDown() {
-    	backLeftButterfly.set(true);
-    	backRightButterfly.set(true);
+    	backButterfly.set(true);
     }
     
     public void frontAllDown() {
-    	frontLeftButterfly.set(false);
-    	frontRightButterfly.set(false);
+    	frontButterfly.set(false);
     }
     
     public void backAllDown() {
-    	backLeftButterfly.set(false);
-    	backRightButterfly.set(false);
+    	backButterfly.set(false);
     }
 }
 
