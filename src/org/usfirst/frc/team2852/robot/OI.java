@@ -3,6 +3,7 @@ package org.usfirst.frc.team2852.robot;
 
 
 import org.usfirst.frc.team2852.robot.commands.AllDown;
+import org.usfirst.frc.team2852.robot.commands.AllOmnis;
 import org.usfirst.frc.team2852.robot.commands.shiftDown;
 import org.usfirst.frc.team2852.robot.commands.shiftUp;
 import org.usfirst.team2852.robot.util.XboxTrigger;
@@ -29,12 +30,14 @@ public class OI {
 	Button clickLeft = new JoystickButton(xbox1, 9);
 	Button clickRight = new JoystickButton(xbox1, 10);
 	
-	XboxTrigger leftTrig = new XboxTrigger(xbox1, 2);
-	XboxTrigger rightTrig = new XboxTrigger(xbox1, 3);
+	XboxTrigger lTrig = new XboxTrigger(xbox1, 2);
+	XboxTrigger rTrig = new XboxTrigger(xbox1, 3);
 	
-	public OI() {
-	rBump.whenPressed(new shiftUp());	
-	lBump.whenPressed(new shiftDown());
+	public OI() {	
+	lBump.whenPressed(new shiftUp());
+	lTrig.whenPressed(new shiftDown());
+	rBump.whenPressed(new AllDown());
+	rTrig.whenPressed(new AllOmnis());
 	}
 	
 	public double getLeftJoystick() {
