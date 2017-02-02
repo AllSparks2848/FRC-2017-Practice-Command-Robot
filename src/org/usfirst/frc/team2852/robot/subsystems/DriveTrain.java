@@ -3,9 +3,9 @@ package org.usfirst.frc.team2852.robot.subsystems;
 import org.usfirst.frc.team2852.robot.RobotMap;
 import org.usfirst.frc.team2852.robot.commands.ArcadeDrive;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -20,8 +20,9 @@ public class DriveTrain extends PIDSubsystem {
 	RobotDrive drive1 = new RobotDrive(leftDrive1, leftDrive2, rightDrive1, rightDrive2);
 	RobotDrive drive2 = new RobotDrive(leftDrive3, rightDrive3);
 	
-	Solenoid frontButterfly = new Solenoid(RobotMap.p_frontButterfly);
-	Solenoid backButterfly = new Solenoid(RobotMap.p_backButterfly);
+	DoubleSolenoid frontButterfly = new DoubleSolenoid(RobotMap.p_frontButterfly1, RobotMap.p_frontButterfly2);
+	DoubleSolenoid backButterfly = new DoubleSolenoid(RobotMap.p_backButterfly1, RobotMap.p_backButterfly2);
+	DoubleSolenoid driveShifter = new DoubleSolenoid(RobotMap.p_driveshifter1, RobotMap.p_driveshifter2);
 	
 	private static double pDrive = .07;
 	private static double iDrive = 0;
@@ -69,19 +70,27 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void frontOmnisDown() {
-    	frontButterfly.set(true);
+    	frontButterfly.set(DoubleSolenoid.Value.kForward);
     }
     
     public void backOmnisDown() {
-    	backButterfly.set(true);
+    	backButterfly.set(DoubleSolenoid.Value.kForward);
     }
     
     public void frontAllDown() {
-    	frontButterfly.set(false);
+    	frontButterfly.set(DoubleSolenoid.Value.kReverse);
     }
     
     public void backAllDown() {
-    	backButterfly.set(false);
+    	backButterfly.set(DoubleSolenoid.Value.kReverse);
+    }
+    
+    public void shiftHigh() {
+    	driveShifter.set(DoubleSolenoid.Value.kForward);
+    }
+    
+    public void shiftLow() {
+    	driveShifter.set(DoubleSolenoid.Value.kReverse);
     }
 }
 
