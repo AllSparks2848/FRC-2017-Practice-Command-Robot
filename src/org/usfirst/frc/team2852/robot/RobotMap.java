@@ -20,20 +20,21 @@ public class RobotMap {
 	public static int p_rightDrive2 = 1;
 	public static int p_rightDrive3 = 2;
 	public static int p_intakeRoller = 6;
-	public static int p_intakePivot = 4;
+	public static int p_intakePivot = 7;
 //	public static int p_climber1 = 9;
 //	public static int p_climber2 = 10;
 	
-	public static int p_driveshifter1 = 0;
-	public static int p_driveshifter2 = 1;
-	public static int p_frontButterfly1 = 2;
-	public static int p_frontButterfly2 = 3;
-	public static int p_backButterfly1 = 4;
-	public static int p_backButterfly2 = 5;
+	public static int p_driveshifter1 = 4;
+	public static int p_driveshifter2 = 5;
+	public static int p_frontButterfly1 = 0;
+	public static int p_frontButterfly2 = 1;
+	public static int p_backButterfly1 = 2;
+	public static int p_backButterfly2 = 3;
 	
 	//Sensor ports
-	public static int p_leftEncoderA = 0;
-	public static int p_leftEncoderB = 1;
-	public static int p_rightEncoderA = 3;
-	public static int p_rightEncoderB = 2;
+//	public static int p_leftEncoderA = 0;
+//	public static int p_leftEncoderB = 1;
+//	public static int p_rightEncoderA = 3;
+//	public static int p_rightEncoderB = 2;
+	public static int p_potentiometer = 0;
 }

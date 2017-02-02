@@ -56,7 +56,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		// schedule the autonomous command (example)
-			autonomousCommand.start();
+			
 	}
 
 	/**
@@ -64,16 +64,23 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		Scheduler.getInstance().run();
+	
 	}
 
 	@Override
 	public void teleopInit() {
-			autonomousCommand.cancel();
+			
 	}
 
 	@Override
 	public void teleopPeriodic() {
+		System.out.println("\n");
+		System.out.println(Robot.drivetrain.leftDrive1.get());
+		System.out.println(Robot.drivetrain.leftDrive2.get());
+		System.out.println(Robot.drivetrain.leftDrive3.get());
+		System.out.println(Robot.drivetrain.rightDrive1.get());
+		System.out.println(Robot.drivetrain.rightDrive2.get());
+		System.out.println(Robot.drivetrain.rightDrive3.get());
 		Scheduler.getInstance().run();
 	}
 	

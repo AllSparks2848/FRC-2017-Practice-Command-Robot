@@ -16,8 +16,8 @@ public class DriveToDistance extends Command {
     }
 
     protected void initialize() {
-    	DriveTrain.leftEncoder.reset();
-    	DriveTrain.rightEncoder.reset();
+//    	DriveTrain.leftEncoder.reset();
+//    	DriveTrain.rightEncoder.reset();
     	Robot.drivetrain.setSetpoint(setpoint);
     	Robot.drivetrain.getPIDController().enable();
     }
@@ -26,9 +26,9 @@ public class DriveToDistance extends Command {
     }
 
     protected boolean isFinished() {
-    	System.out.println("Left Dist: " + DriveTrain.leftEncoder.getDistance());
-    	System.out.println("Right Dist: " + DriveTrain.rightEncoder.getDistance());
-    	System.out.println("Avg Dist: " + (DriveTrain.leftEncoder.getDistance()+DriveTrain.rightEncoder.getDistance())/2);
+//    	System.out.println("Left Dist: " + DriveTrain.leftEncoder.getDistance());
+//    	System.out.println("Right Dist: " + DriveTrain.rightEncoder.getDistance());
+//    	System.out.println("Avg Dist: " + (DriveTrain.leftEncoder.getDistance()+DriveTrain.rightEncoder.getDistance())/2);
     	System.out.println("Position: " + Robot.drivetrain.getPosition());
     	System.out.println("Error: " + Robot.drivetrain.getPIDController().getError());
     	System.out.println("P term: " + Robot.drivetrain.getPIDController().getP());

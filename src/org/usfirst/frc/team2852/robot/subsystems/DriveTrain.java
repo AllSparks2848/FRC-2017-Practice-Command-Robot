@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class DriveTrain extends PIDSubsystem {
-	Spark leftDrive1 = new Spark(RobotMap.p_leftDrive1);
-	Spark leftDrive2 = new Spark(RobotMap.p_leftDrive2);
-	Spark leftDrive3 = new Spark(RobotMap.p_leftDrive3);
-	Spark rightDrive1 = new Spark(RobotMap.p_rightDrive1);
-	Spark rightDrive2 = new Spark(RobotMap.p_rightDrive2);
-	Spark rightDrive3 = new Spark(RobotMap.p_rightDrive3);
+	public Spark leftDrive1 = new Spark(RobotMap.p_leftDrive1);
+	public Spark leftDrive2 = new Spark(RobotMap.p_leftDrive2);
+	public Spark leftDrive3 = new Spark(RobotMap.p_leftDrive3);
+	public Spark rightDrive1 = new Spark(RobotMap.p_rightDrive1);
+	public Spark rightDrive2 = new Spark(RobotMap.p_rightDrive2);
+	public Spark rightDrive3 = new Spark(RobotMap.p_rightDrive3);
 	
 	RobotDrive drive1 = new RobotDrive(leftDrive1, leftDrive2, rightDrive1, rightDrive2);
 	RobotDrive drive2 = new RobotDrive(leftDrive3, rightDrive3);
@@ -28,14 +28,14 @@ public class DriveTrain extends PIDSubsystem {
 	private static double iDrive = 0;
 	private static double dDrive = .007;
 	
-	public static Encoder rightEncoder = new Encoder(RobotMap.p_rightEncoderA, RobotMap.p_rightEncoderB, false, Encoder.EncodingType.k4X);
-	public static Encoder leftEncoder = new Encoder(RobotMap.p_leftEncoderA, RobotMap.p_leftEncoderB, false, Encoder.EncodingType.k4X);
+//	public static Encoder rightEncoder = new Encoder(RobotMap.p_rightEncoderA, RobotMap.p_rightEncoderB, false, Encoder.EncodingType.k4X);
+//	public static Encoder leftEncoder = new Encoder(RobotMap.p_leftEncoderA, RobotMap.p_leftEncoderB, false, Encoder.EncodingType.k4X);
 	
     // Initialize your subsystem here
     public DriveTrain() {
     	super("DriveTrain", pDrive, iDrive, dDrive);
-    	leftEncoder.setDistancePerPulse(-0.01057);
-    	rightEncoder.setDistancePerPulse(.01125);
+//    	leftEncoder.setDistancePerPulse(-0.01057);
+//    	rightEncoder.setDistancePerPulse(.01125);
     }
 
     public void initDefaultCommand() {
@@ -46,7 +46,8 @@ public class DriveTrain extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return (leftEncoder.getDistance()+rightEncoder.getDistance())/2;
+//        return (leftEncoder.getDistance()+rightEncoder.getDistance())/2;
+    	return 0;
     }
 
     protected void usePIDOutput(double output) {
@@ -60,8 +61,8 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void arcadeDrive(double left, double right){
-    	drive1.arcadeDrive(left, right);
-    	drive2.arcadeDrive(left, right);
+    	drive1.arcadeDrive(-left, -right);
+    	drive2.arcadeDrive(-left, -right);
     }
     
     public void setPowerZero(){
