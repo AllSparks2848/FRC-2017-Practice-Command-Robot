@@ -10,6 +10,7 @@ public class RobotMap {
 	
 	//Joy stick ports
 	public static int p_xbox1 = 0;
+	public static int p_xbox2 = 1;
 	
 	//Actuator ports
 	public static int p_leftDrive1 = 0;
@@ -18,6 +19,8 @@ public class RobotMap {
 	public static int p_rightDrive1 = 3;
 	public static int p_rightDrive2 = 4;
 	public static int p_rightDrive3 = 5;
+	public static int p_intakeRoller = 7;
+	public static int p_intakePivot = 4;
 	
 	public static int p_driveshifter = 0;
 	public static int p_frontButterfly = 1;

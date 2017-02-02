@@ -1,9 +1,7 @@
 package org.usfirst.frc.team2852.robot;
 
-//import org.usfirst.frc.team2852.robot.commands.AutonGearLeft;
-import org.usfirst.frc.team2852.robot.commands.DriveToDistance;
 import org.usfirst.frc.team2852.robot.subsystems.DriveTrain;
-
+import org.usfirst.frc.team2852.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -25,6 +23,7 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 
 	public static DriveTrain drivetrain = new DriveTrain();
+	public static Intake intake = new Intake();
 
 	/**
 	 * This function is run when the robot is first started up and should be

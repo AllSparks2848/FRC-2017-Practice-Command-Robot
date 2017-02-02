@@ -1,43 +1,57 @@
 package org.usfirst.frc.team2852.robot;
 
-
-
 import org.usfirst.frc.team2852.robot.commands.AllDown;
 import org.usfirst.frc.team2852.robot.commands.AllOmnis;
+import org.usfirst.frc.team2852.robot.commands.IntakeDown;
+import org.usfirst.frc.team2852.robot.commands.IntakeGear;
+import org.usfirst.frc.team2852.robot.commands.IntakePID;
+import org.usfirst.frc.team2852.robot.commands.IntakeUp;
+import org.usfirst.frc.team2852.robot.commands.SpitGear;
 import org.usfirst.frc.team2852.robot.commands.shiftDown;
 import org.usfirst.frc.team2852.robot.commands.shiftUp;
 import org.usfirst.team2852.robot.util.XboxTrigger;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.Trigger;
 
-/**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
- */
 public class OI {
 	Joystick xbox1 = new Joystick(RobotMap.p_xbox1);
-	Button a = new JoystickButton(xbox1, 1);
-	Button b = new JoystickButton(xbox1, 2);
-	Button x = new JoystickButton(xbox1, 3);
-	Button y = new JoystickButton(xbox1, 4);
+	Joystick xbox2 = new Joystick(RobotMap.p_xbox2);
+	Button a1 = new JoystickButton(xbox1, 1);
+	Button b1 = new JoystickButton(xbox1, 2);
+	Button x1 = new JoystickButton(xbox1, 3);
+	Button y1 = new JoystickButton(xbox1, 4);
+	Button a2 = new JoystickButton(xbox2, 1);
+	Button b2 = new JoystickButton(xbox2, 2);
 	
-	Button lBump = new JoystickButton(xbox1, 5);
-	Button rBump = new JoystickButton(xbox1, 6);
+	Button x2 = new JoystickButton(xbox2, 3);
+	Button y2 = new JoystickButton(xbox2, 4);
+	
+	XboxTrigger lTrig1 = new XboxTrigger(xbox1, 2);
+	XboxTrigger rTrig1 = new XboxTrigger(xbox1, 3);
+	Button lBump1 = new JoystickButton(xbox1, 5);
+	Button rBump1 = new JoystickButton(xbox1, 6);
+	
+	Button lBump2 = new JoystickButton(xbox2, 5);
+	Button rBump2 = new JoystickButton(xbox2, 6);
+	XboxTrigger lTrig2 = new XboxTrigger(xbox2, 2);
+	XboxTrigger rTrig2 = new XboxTrigger(xbox2, 3);
 	
 	Button clickLeft = new JoystickButton(xbox1, 9);
 	Button clickRight = new JoystickButton(xbox1, 10);
 	
-	XboxTrigger lTrig = new XboxTrigger(xbox1, 2);
-	XboxTrigger rTrig = new XboxTrigger(xbox1, 3);
-	
 	public OI() {	
-	lBump.whenPressed(new shiftUp());
-	lTrig.whenPressed(new shiftDown());
-	rBump.whenPressed(new AllDown());
-	rTrig.whenPressed(new AllOmnis());
+	lBump1.whenPressed(new shiftUp());
+	lTrig1.whenPressed(new shiftDown());
+	rBump1.whenPressed(new AllDown());
+	rTrig1.whenPressed(new AllOmnis());
+	
+	rBump2.whileHeld(new SpitGear());
+	lBump2.whileHeld(new IntakeUp());
+	lTrig2.whileHeld(new IntakeDown());
+	rTrig2.whileHeld(new IntakeGear());
+	
+	a2.whenPressed(new IntakePID(1000.0));
 	}
 	
 	public double getLeftJoystick() {
@@ -47,35 +61,4 @@ public class OI {
 	public double getRightJoystick() {
 		return xbox1.getRawAxis(4);
 	}
-	
-	//D-pad: if(xbox1.getPOV==Angle) --> new Command();
-	//Trigger: Create Trigger, then use ".whileActive(new Command());"
-	
-	//// CREATING BUTTONS
-	// One type of button is a joystick button which is any button on a
-	//// joystick.
-	// You create one by telling it which joystick it's on and which button
-	// number it is.
-	// Joystick stick = new Joystick(port);
-	// Button button = new JoystickButton(stick, buttonNumber);
-
-	// There are a few additional built in buttons you can use. Additionally,
-	// by subclassing Button you can create custom triggers and bind those to
-	// commands the same as any other Button.
-
-	//// TRIGGERING COMMANDS WITH BUTTONS
-	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
-
-	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenPressed(new ExampleCommand());
-
-	// Run the command while the button is being held down and interrupt it once
-	// the button is released.
-	// button.whileHeld(new ExampleCommand());
-
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
 }
