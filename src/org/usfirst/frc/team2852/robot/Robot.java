@@ -37,8 +37,21 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(drivetrain);
 		
 		//temporary:
-		boolean teamRed = true, shoot = true, hopper = false;
-		int pos = 1;
+		boolean teamRed, shoot, hopper;
+		int pos;
+		while(true){
+			if(*all buttons pressed*){
+				teamRed = *getTeamButton();
+				shoot = *getShootButton();
+				hopper = *getHopperButton();
+				pos = *getPosButton();
+				break;
+			}
+			else{
+				idle();
+			}
+		}
+		
 		
 		if(pos < 1 || pos > 3){
 			try{
