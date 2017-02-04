@@ -6,6 +6,7 @@ import org.usfirst.frc.team2852.robot.commands.IntakeDown;
 import org.usfirst.frc.team2852.robot.commands.IntakeGear;
 import org.usfirst.frc.team2852.robot.commands.IntakePID;
 import org.usfirst.frc.team2852.robot.commands.IntakeUp;
+import org.usfirst.frc.team2852.robot.commands.PrintEnc;
 import org.usfirst.frc.team2852.robot.commands.SpitGear;
 import org.usfirst.frc.team2852.robot.commands.ShiftLow;
 import org.usfirst.frc.team2852.robot.commands.ShiftHigh;
@@ -55,7 +56,8 @@ public class OI {
 	lTrig2.whileHeld(new IntakeDown());
 	rTrig2.whileHeld(new IntakeGear());
 	
-	a2.whenPressed(new IntakePID(1000.0));
+	a2.whenPressed(new IntakePID(4.0));
+	b2.whenPressed(new IntakePID(0.2));
 	}
 	
 	public double getLeftJoystick() {

@@ -1,9 +1,13 @@
 package org.usfirst.frc.team2852.robot.subsystems;
 
+import org.usfirst.frc.team2852.robot.Robot;
 import org.usfirst.frc.team2852.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogOutput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -13,16 +17,16 @@ import edu.wpi.first.wpilibj.interfaces.Potentiometer;
  *
  */
 public class Intake extends PIDSubsystem {
-	public static double p = 0;
+	public static double p = 3;
 	public static double i = 0;
 	public static double d = 0;
-	public static double MAXUP = 0.0;
-	public static double MAXDOWN = 0.0;
+	public static double MAXUP = 0.2;
+	public static double MAXDOWN = 4.0;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     Spark intakePivot = new Spark(RobotMap.p_intakePivot);
     DigitalInput breakbeam = new DigitalInput(9);
-    public static Potentiometer pot = new AnalogPotentiometer(RobotMap.p_potentiometer, 360, -30);
+    public static AnalogInput absPosEncoder = new AnalogInput(RobotMap.p_absPosEncoder);
 	
     public Intake() {
         super("Intake", p, i, d);
@@ -37,7 +41,7 @@ public class Intake extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return pot.get();
+        return absPosEncoder.getVoltage();
     }
 
     protected void usePIDOutput(double output) {
@@ -65,6 +69,10 @@ public class Intake extends PIDSubsystem {
     }
     
     public double getPot() {
-    	return pot.get();
+    	return absPosEncoder.getVoltage();
+    }
+    
+    public double getPivot() {
+    	return intakePivot.get();
     }
 }
