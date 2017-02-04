@@ -75,12 +75,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		System.out.println("\n");
-		System.out.println(Robot.drivetrain.leftDrive1.get());
-		System.out.println(Robot.drivetrain.leftDrive2.get());
-		System.out.println(Robot.drivetrain.leftDrive3.get());
-		System.out.println(Robot.drivetrain.rightDrive1.get());
-		System.out.println(Robot.drivetrain.rightDrive2.get());
-		System.out.println(Robot.drivetrain.rightDrive3.get());
+		SmartDashboard.putNumber("LD1", Robot.drivetrain.leftDrive1.get());
+		SmartDashboard.putNumber("LD2", Robot.drivetrain.leftDrive2.get());
+		SmartDashboard.putNumber("LD3", Robot.drivetrain.leftDrive3.get());
+		SmartDashboard.putNumber("RD1", Robot.drivetrain.rightDrive1.get());
+		SmartDashboard.putNumber("RD2", Robot.drivetrain.rightDrive2.get());
+		SmartDashboard.putNumber("RD3", Robot.drivetrain.rightDrive3.get());
 		Scheduler.getInstance().run();
 	}
 	
