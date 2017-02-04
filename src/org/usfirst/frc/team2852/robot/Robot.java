@@ -36,7 +36,50 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(Scheduler.getInstance());
 		SmartDashboard.putData(drivetrain);
 		
+		//temporary:
+		boolean teamRed = true, shoot = true, hopper = false;
+		int pos = 1;
 		
+		int state = (teamRed ? 1 : 0) + (shoot ? 2 : 0) + (hopper ? 4 : 0);
+		
+		switch(state){
+		case 0:
+			//Blue team, not shooting, no hopper
+			break;
+		case 1:
+			//Red team, not shooting, no hopper
+			break;
+		case 2:
+			//Blue team, shooting, no hopper
+			break;
+		case 3:
+			//Red team, shooting, no hopper
+			break;
+		case 4:
+			//Blue team, not shooting, using hopper
+			break;
+		case 5:
+			//Red team, not shooting, using hopper
+			break;
+		case 6:
+			//Blue team, shooting, using hopper
+			break;
+		case 7:
+			//Red team, shooting, using hopper
+			break;
+		default:
+			//value of state does not match with any cases
+			try {
+				throw new Exception(String.join("\n",
+						"Unexpected Error: variable 'state' did not match any cases:",
+						"\tteamRed: " + teamRed + (teamRed ? " (Red)" : " (Blue)"),
+						"\tshoot: " + shoot,
+						"\thopper: " + hopper
+						));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
