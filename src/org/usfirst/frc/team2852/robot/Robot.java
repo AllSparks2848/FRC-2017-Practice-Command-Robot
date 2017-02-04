@@ -40,44 +40,128 @@ public class Robot extends IterativeRobot {
 		boolean teamRed = true, shoot = true, hopper = false;
 		int pos = 1;
 		
+		if(pos < 1 || pos > 3){
+			try{
+				throw new Exception("Error: Unanticipated position value: " + pos);
+			} catch(Exception e){
+				e.printStackTrace();
+				return;
+			}
+		}
+		
 		int state = (teamRed ? 1 : 0) + (shoot ? 2 : 0) + (hopper ? 4 : 0);
 		
 		switch(state){
 		case 0:
 			//Blue team, not shooting, no hopper
+			
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		case 1:
 			//Red team, not shooting, no hopper
+			
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		case 2:
 			//Blue team, shooting, no hopper
+
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		case 3:
 			//Red team, shooting, no hopper
+
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		case 4:
 			//Blue team, not shooting, using hopper
+
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		case 5:
 			//Red team, not shooting, using hopper
+
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		case 6:
 			//Blue team, shooting, using hopper
+
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		case 7:
 			//Red team, shooting, using hopper
+
+			if(pos == 1){
+				
+			} else if(pos == 2){
+				
+			} else if(pos == 3){
+				
+			}
+			
 			break;
 		default:
 			//value of state does not match with any cases
+			
 			try {
 				throw new Exception(String.join("\n",
 						"Unexpected Error: variable 'state' did not match any cases:",
 						"\tteamRed: " + teamRed + (teamRed ? " (Red)" : " (Blue)"),
 						"\tshoot: " + shoot,
-						"\thopper: " + hopper
+						"\thopper: " + hopper,
+						"\tstate: " + state
 						));
 			} catch (Exception e) {
 				e.printStackTrace();
+				return;
 			}
 		}
 	}
