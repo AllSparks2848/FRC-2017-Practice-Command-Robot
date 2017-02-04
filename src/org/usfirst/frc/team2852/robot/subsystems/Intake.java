@@ -14,15 +14,17 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *
  */
 public class Intake extends PIDSubsystem {
-	public static double p = 3;
+	public static double p = .6;
 	public static double i = 0;
 	public static double d = 0;
-	public static double MAXUP = 0.2;
-	public static double MAXDOWN = 4.0;
+	public double downPosition = 0;
+	public static final double INTAKE_OFFSET = .5;
+	public static final double SPIT_OFFSET = 3.8;
+	public static final double TUCK_OFFSET = 4.3;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     Spark intakePivot = new Spark(RobotMap.p_intakePivot);
-    DigitalInput breakbeam = new DigitalInput(9);
+    DigitalInput breakbeam = new DigitalInput(0);
     public static AnalogInput absPosEncoder = new AnalogInput(RobotMap.p_absPosEncoder);
 	
     public Intake() {
@@ -71,5 +73,13 @@ public class Intake extends PIDSubsystem {
     
     public double getPivot() {
     	return intakePivot.get();
+    }
+    
+    public void setDownPosition() {
+    	downPosition = Intake.absPosEncoder.getVoltage();
+    }
+    
+    public double getDownPosition() {
+    	return downPosition;
     }
 }

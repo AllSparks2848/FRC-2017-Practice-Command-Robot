@@ -7,7 +7,9 @@ import org.usfirst.frc.team2852.robot.commands.IntakeGear;
 import org.usfirst.frc.team2852.robot.commands.IntakePID;
 import org.usfirst.frc.team2852.robot.commands.IntakeUp;
 import org.usfirst.frc.team2852.robot.commands.PrintEnc;
+import org.usfirst.frc.team2852.robot.commands.SetDownPosition;
 import org.usfirst.frc.team2852.robot.commands.SpitGear;
+import org.usfirst.frc.team2852.robot.subsystems.Intake;
 import org.usfirst.frc.team2852.robot.commands.ShiftLow;
 import org.usfirst.frc.team2852.robot.commands.ShiftHigh;
 import org.usfirst.team2852.robot.util.XboxTrigger;
@@ -39,11 +41,14 @@ public class OI {
 	Button x2 = new JoystickButton(xbox2, 3);
 	Button y2 = new JoystickButton(xbox2, 4);
 	
+	Button start = new JoystickButton(xbox2, 8);
+	
 	Button lBump2 = new JoystickButton(xbox2, 5);
 	Button rBump2 = new JoystickButton(xbox2, 6);
 	XboxTrigger lTrig2 = new XboxTrigger(xbox2, 2);
 	XboxTrigger rTrig2 = new XboxTrigger(xbox2, 3);
 	
+	Button clickRight2 = new JoystickButton(xbox2, 10);
 	
 	public OI() {	
 	lBump1.whenPressed(new ShiftHigh());
@@ -54,10 +59,14 @@ public class OI {
 	rBump2.whileHeld(new SpitGear());
 	lBump2.whileHeld(new IntakeUp());
 	lTrig2.whileHeld(new IntakeDown());
-	rTrig2.whileHeld(new IntakeGear());
+	rTrig2.whenPressed(new IntakeGear());
 	
-	a2.whenPressed(new IntakePID(4.0));
-	b2.whenPressed(new IntakePID(0.2));
+	a2.whenPressed(new IntakePID(Robot.intake.getDownPosition())); //down
+	b2.whenPressed(new IntakePID(Robot.intake.getDownPosition()+Intake.INTAKE_OFFSET)); //intake
+	x2.whenPressed(new IntakePID(Robot.intake.getDownPosition()+Intake.SPIT_OFFSET)); //spit
+	y2.whenPressed(new IntakePID(Robot.intake.getDownPosition()+Intake.TUCK_OFFSET)); //up
+	start.whenPressed(new SetDownPosition());
+	clickRight2.whileHeld(new PrintEnc());
 	}
 	
 	public double getLeftJoystick() {
