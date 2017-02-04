@@ -1,19 +1,21 @@
 package org.usfirst.frc.team2852.robot.commands;
 
+import org.usfirst.frc.team2852.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class shiftUp extends Command {
+public class ShiftLow extends Command {
 
-    public shiftUp() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public ShiftLow() {
+        requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drivetrain.shiftLow();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +24,7 @@ public class shiftUp extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

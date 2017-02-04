@@ -17,11 +17,11 @@ public class ArcadeDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drivetrain.arcadeDrive(Robot.oi.getLeftJoystick(), Robot.oi.getRightJoystick());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.drivetrain.arcadeDrive(Robot.oi.getLeftJoystick(), Robot.oi.getRightJoystick());
     }
 
     // Make this return true when this Command no longer needs to run execute()

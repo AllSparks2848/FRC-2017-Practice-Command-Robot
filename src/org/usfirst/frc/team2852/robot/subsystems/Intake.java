@@ -22,7 +22,7 @@ public class Intake extends PIDSubsystem {
     Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     Spark intakePivot = new Spark(RobotMap.p_intakePivot);
     DigitalInput breakbeam = new DigitalInput(9);
-    public static Potentiometer pot = new AnalogPotentiometer(0, 360, -30);
+    public static Potentiometer pot = new AnalogPotentiometer(RobotMap.p_potentiometer, 360, -30);
 	
     public Intake() {
         super("Intake", p, i, d);
