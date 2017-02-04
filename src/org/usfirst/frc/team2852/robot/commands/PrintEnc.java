@@ -1,17 +1,18 @@
 package org.usfirst.frc.team2852.robot.commands;
 
 import org.usfirst.frc.team2852.robot.Robot;
-import org.usfirst.frc.team2852.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class IntakeUp extends Command {
+public class PrintEnc extends Command {
 
-    public IntakeUp() {
-        requires(Robot.intake);
+    public PrintEnc() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
@@ -20,8 +21,6 @@ public class IntakeUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.actuate(0.5);
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,12 +31,10 @@ public class IntakeUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intake.stopActuate();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

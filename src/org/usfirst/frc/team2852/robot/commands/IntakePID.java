@@ -13,6 +13,7 @@ public class IntakePID extends Command {
     public IntakePID(double setpoint) {
     	this.setpoint = setpoint;
         requires(Robot.intake);
+        Robot.intake.setSetpoint(setpoint);
     }
 
     protected void initialize() {
@@ -26,7 +27,8 @@ public class IntakePID extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
-        return (Math.abs((setpoint - Robot.intake.getPot())) < 5);
+    	System.out.println("Motor Power: " + Robot.intake.getPivot());
+        return (Math.abs((setpoint - Robot.intake.getPot())) < .1);
     }
 
     // Called once after isFinished returns true
