@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2852.robot.subsystems;
 
+import org.usfirst.frc.team2852.robot.Robot;
 import org.usfirst.frc.team2852.robot.RobotMap;
 import edu.wpi.first.wpilibj.AnalogInput;
 
@@ -14,18 +15,20 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *
  */
 public class Intake extends PIDSubsystem {
-	public static double p = .6;
-	public static double i = 0;
+	public static double p = .4;
+	public static double i = 0.1;
 	public static double d = 0;
-	public double downPosition = 0;
-	public static final double INTAKE_OFFSET = .5;
-	public static final double SPIT_OFFSET = 3.8;
-	public static final double TUCK_OFFSET = 4.3;
+	public static double bottomPos = 2.11;
+	public static double intakePos = 2.08;
+	public static double spitPos = 3.45;
+	public static double tuckPos = .4;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     Spark intakePivot = new Spark(RobotMap.p_intakePivot);
     DigitalInput breakbeam = new DigitalInput(0);
     public static AnalogInput absPosEncoder = new AnalogInput(RobotMap.p_absPosEncoder);
+    
+    public double currentPosition = 0;
 	
     public Intake() {
         super("Intake", p, i, d);
@@ -40,7 +43,7 @@ public class Intake extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return absPosEncoder.getVoltage();
+        return Robot.intake.getPot();
     }
 
     protected void usePIDOutput(double output) {
@@ -75,11 +78,35 @@ public class Intake extends PIDSubsystem {
     	return intakePivot.get();
     }
     
-    public void setDownPosition() {
-    	downPosition = Intake.absPosEncoder.getVoltage();
+    public void setCurrentPosition(int newPosition) {
+    	currentPosition = newPosition;
     }
     
-    public double getDownPosition() {
-    	return downPosition;
+    public double getCurrentPosition() {
+    	return currentPosition;
+    }
+    
+    public double getBottomPos() {
+    	return bottomPos;
+    }
+    
+//    public void setBottomPos(double newBottom) {
+//    	bottomPos = newBottom;
+//    	intakePos = .122 + bottomPos;
+//    	spitPos = .492 + bottomPos;
+//    	tuckPos = .732 + bottomPos;
+//    	
+//    }
+    
+    public double getIntakePos() {
+    	return intakePos;
+    }
+    
+    public double getSpitPos() {
+    	return spitPos;
+    }
+    
+    public double getTuckPos() {
+    	return tuckPos;
     }
 }

@@ -4,6 +4,7 @@ import org.usfirst.frc.team2852.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2852.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -19,6 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static RobotMap robot = new RobotMap();
+	public static Timer timer = new Timer();
 
 	Command autonomousCommand;
 
@@ -35,8 +37,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
 		SmartDashboard.putData(drivetrain);
-		
-		
+		timer.start();
 	}
 
 	/**

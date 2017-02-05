@@ -36,5 +36,5 @@ public class RobotMap {
 //	public static int p_leftEncoderB = 1;
 //	public static int p_rightEncoderA = 3;
 //	public static int p_rightEncoderB = 2;
-	public static int p_absPosEncoder = 0;
+	public static int p_absPosEncoder = 1;
 }

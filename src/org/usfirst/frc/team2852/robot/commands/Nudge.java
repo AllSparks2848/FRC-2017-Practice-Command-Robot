@@ -7,39 +7,38 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IntakePID extends Command {
-	private double setpoint;
-	
-    public IntakePID(double setpoint) {
-    	this.setpoint = setpoint;
-        requires(Robot.intake);
-        Robot.intake.setOutputRange(-1, 1);
+public class Nudge extends Command {
+	private int direction;
+	private double time;
+
+    public Nudge(int direction) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.intake);
+    	this.direction=direction;
     }
 
+    // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.intake.setSetpoint(setpoint);
-    	Robot.intake.enable();
+    	time = Robot.timer.get();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.intake.actuate(direction); //NEGATIVE DIRECTION IS UP
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
-    	System.out.println("Motor Power: " + Robot.intake.getPivot());
-        return (Math.abs((setpoint - Robot.intake.getPot())) < .08);
+    	return (Robot.timer.get()-time) > .05;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intake.disable();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

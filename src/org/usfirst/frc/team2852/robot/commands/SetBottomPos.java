@@ -1,15 +1,16 @@
 package org.usfirst.frc.team2852.robot.commands;
 
 import org.usfirst.frc.team2852.robot.Robot;
+import org.usfirst.frc.team2852.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class SetDownPosition extends Command {
+public class SetBottomPos extends Command {
 
-    public SetDownPosition() {
+    public SetBottomPos() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.intake);
@@ -17,7 +18,9 @@ public class SetDownPosition extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.intake.setDownPosition();
+    	//Robot.intake.setBottomPos(100*(Robot.intake.getPot()-4.8));
+    	System.out.println("Bottom Position Set");
+    	System.out.println("Spit Position: " + (Robot.intake.getBottomPos()));
     }
 
     // Called repeatedly when this Command is scheduled to run

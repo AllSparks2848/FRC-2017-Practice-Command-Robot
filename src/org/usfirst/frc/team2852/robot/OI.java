@@ -7,7 +7,6 @@ import org.usfirst.frc.team2852.robot.commands.IntakeGear;
 import org.usfirst.frc.team2852.robot.commands.IntakePID;
 import org.usfirst.frc.team2852.robot.commands.IntakeUp;
 import org.usfirst.frc.team2852.robot.commands.PrintEnc;
-import org.usfirst.frc.team2852.robot.commands.SetDownPosition;
 import org.usfirst.frc.team2852.robot.commands.SpitGear;
 import org.usfirst.frc.team2852.robot.subsystems.Intake;
 import org.usfirst.frc.team2852.robot.commands.ShiftLow;
@@ -57,15 +56,16 @@ public class OI {
 	rTrig1.whenPressed(new AllOmnis());
 	
 	rBump2.whileHeld(new SpitGear());
-	lBump2.whileHeld(new IntakeUp());
-	lTrig2.whileHeld(new IntakeDown());
+	lBump2.whileHeld(new IntakeDown());
+	lTrig2.whileHeld(new IntakeUp());
 	rTrig2.whenPressed(new IntakeGear());
 	
-	a2.whenPressed(new IntakePID(Robot.intake.getDownPosition())); //down
-	b2.whenPressed(new IntakePID(Robot.intake.getDownPosition()+Intake.INTAKE_OFFSET)); //intake
-	x2.whenPressed(new IntakePID(Robot.intake.getDownPosition()+Intake.SPIT_OFFSET)); //spit
-	y2.whenPressed(new IntakePID(Robot.intake.getDownPosition()+Intake.TUCK_OFFSET)); //up
-	start.whenPressed(new SetDownPosition());
+	a2.whenPressed(new IntakePID(Robot.intake.getBottomPos())); 
+	b2.whenPressed(new IntakePID(Robot.intake.getIntakePos()));
+	x2.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
+	y2.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
+	
+	//start.whenPressed(new SetBottomPos());
 	clickRight2.whileHeld(new PrintEnc());
 	}
 	

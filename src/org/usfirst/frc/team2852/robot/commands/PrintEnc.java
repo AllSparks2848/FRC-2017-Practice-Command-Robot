@@ -10,17 +10,17 @@ import edu.wpi.first.wpilibj.command.Command;
 public class PrintEnc extends Command {
 
     public PrintEnc() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
     }
 
     // Make this return true when this Command no longer needs to run execute()

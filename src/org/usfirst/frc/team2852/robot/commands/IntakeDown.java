@@ -16,7 +16,7 @@ public class IntakeDown extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.intake.actuate(-.5);
+    	Robot.intake.actuate(.5);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -25,7 +25,6 @@ public class IntakeDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
         return false;
     }
 
