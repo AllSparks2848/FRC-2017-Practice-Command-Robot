@@ -6,6 +6,7 @@ import org.usfirst.frc.team2852.robot.commands.IntakeDown;
 import org.usfirst.frc.team2852.robot.commands.IntakeGear;
 import org.usfirst.frc.team2852.robot.commands.IntakePID;
 import org.usfirst.frc.team2852.robot.commands.IntakeUp;
+import org.usfirst.frc.team2852.robot.commands.Nudge;
 import org.usfirst.frc.team2852.robot.commands.PrintEnc;
 import org.usfirst.frc.team2852.robot.commands.SpitGear;
 import org.usfirst.frc.team2852.robot.subsystems.Intake;
@@ -66,6 +67,7 @@ public class OI {
 	y2.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
 	
 	//start.whenPressed(new SetBottomPos());
+	start.whenPressed(new Nudge(1));
 	clickRight2.whileHeld(new PrintEnc());
 	}
 	

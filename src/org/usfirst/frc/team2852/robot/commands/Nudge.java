@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Nudge extends Command {
 	private int direction;
-	private double time;
 
     public Nudge(int direction) {
         // Use requires() here to declare subsystem dependencies
@@ -20,7 +19,6 @@ public class Nudge extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	time = Robot.timer.get();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -30,7 +28,12 @@ public class Nudge extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return (Robot.timer.get()-time) > .05;
+    	if(direction == 1) {
+    		return Robot.intake.getPot() < .3;
+    	}
+    	else {
+    		return Robot.intake.getPot() > 4.5;
+    	}
     }
 
     // Called once after isFinished returns true

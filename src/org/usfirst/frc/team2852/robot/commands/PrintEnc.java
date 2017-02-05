@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class PrintEnc extends Command {
 
     public PrintEnc() {
-    	requires(Robot.drivetrain);
+    	requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time

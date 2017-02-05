@@ -19,9 +19,9 @@ public class Intake extends PIDSubsystem {
 	public static double i = 0.1;
 	public static double d = 0;
 	public static double bottomPos = 2.11;
-	public static double intakePos = 2.08;
+	public static double intakePos = 2.0;
 	public static double spitPos = 3.45;
-	public static double tuckPos = .4;
+	public static double tuckPos = .92;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     Spark intakePivot = new Spark(RobotMap.p_intakePivot);
