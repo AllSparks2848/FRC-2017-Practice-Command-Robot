@@ -24,6 +24,9 @@ public class RobotMap {
 	public static int p_intakePivot = 7;
 //	public static int p_climber1 = 9;
 //	public static int p_climber2 = 10;
+	public static int p_shooterInner =8;
+	public static int p_shooterOuter = 9;
+	public static int p_shooterIntake =10;
 	
 	public static int p_driveshifter1 = 4;
 	public static int p_driveshifter2 = 5;
@@ -38,4 +41,8 @@ public class RobotMap {
 //	public static int p_rightEncoderA = 3;
 //	public static int p_rightEncoderB = 2;
 	public static int p_absPosEncoder = 1;
+	public static int p_shooterInnerEncA =2;
+	public static int p_shooterInnerEncB =3;
+	public static int p_shooterOuterEncA =4;
+	public static int p_shooterOuterEncB =5;
 }

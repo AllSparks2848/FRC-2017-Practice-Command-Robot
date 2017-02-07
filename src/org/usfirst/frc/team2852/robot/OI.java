@@ -6,7 +6,7 @@ import org.usfirst.frc.team2852.robot.commands.IntakeDown;
 import org.usfirst.frc.team2852.robot.commands.IntakeGear;
 import org.usfirst.frc.team2852.robot.commands.IntakePID;
 import org.usfirst.frc.team2852.robot.commands.IntakeUp;
-
+import org.usfirst.frc.team2852.robot.commands.PIDShoot;
 import org.usfirst.frc.team2852.robot.commands.PrintEnc;
 import org.usfirst.frc.team2852.robot.commands.ShiftHigh;
 import org.usfirst.frc.team2852.robot.commands.ShiftLow;
@@ -75,6 +75,8 @@ public class OI {
 	bb6.whileHeld(new IntakeDown());
 	bb3.whileHeld(new IntakeUp());
 	bb8.whenPressed(new IntakeGear());
+	
+	b2.whileHeld(new PIDShoot (1000));
 	
 //	bb1.whenPressed(new IntakePID(Robot.intake.getBottomPos())); 
 //	bb2.whenPressed(new IntakePID(Robot.intake.getIntakePos()));
