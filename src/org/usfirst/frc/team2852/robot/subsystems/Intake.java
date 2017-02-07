@@ -5,7 +5,7 @@ import org.usfirst.frc.team2852.robot.RobotMap;
 import edu.wpi.first.wpilibj.AnalogInput;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -24,11 +24,12 @@ public class Intake extends PIDSubsystem {
 	public static double tuckPos = .92;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
-    Spark intakePivot = new Spark(RobotMap.p_intakePivot);
+    public Spark intakePivot = new Spark(RobotMap.p_intakePivot);
     DigitalInput breakbeam = new DigitalInput(0);
     public static AnalogInput absPosEncoder = new AnalogInput(RobotMap.p_absPosEncoder);
     
     public double currentPosition = 0;
+    public Timer timer = new Timer();
 	
     public Intake() {
         super("Intake", p, i, d);

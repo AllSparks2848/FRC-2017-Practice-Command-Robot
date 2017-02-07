@@ -6,13 +6,13 @@ import org.usfirst.frc.team2852.robot.commands.IntakeDown;
 import org.usfirst.frc.team2852.robot.commands.IntakeGear;
 import org.usfirst.frc.team2852.robot.commands.IntakePID;
 import org.usfirst.frc.team2852.robot.commands.IntakeUp;
-import org.usfirst.frc.team2852.robot.commands.Nudge;
+
 import org.usfirst.frc.team2852.robot.commands.PrintEnc;
-import org.usfirst.frc.team2852.robot.commands.SpitGear;
-import org.usfirst.frc.team2852.robot.subsystems.Intake;
-import org.usfirst.frc.team2852.robot.commands.ShiftLow;
 import org.usfirst.frc.team2852.robot.commands.ShiftHigh;
+import org.usfirst.frc.team2852.robot.commands.ShiftLow;
+import org.usfirst.frc.team2852.robot.commands.SpitGear;
 import org.usfirst.team2852.robot.util.XboxTrigger;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	Joystick xbox1 = new Joystick(RobotMap.p_xbox1);
 	Joystick xbox2 = new Joystick(RobotMap.p_xbox2);
+	Joystick buttonBox = new Joystick(2);
 	
 //	Controller 1
 	Button a1 = new JoystickButton(xbox1, 1);
@@ -50,24 +51,37 @@ public class OI {
 	
 	Button clickRight2 = new JoystickButton(xbox2, 10);
 	
+//	Button bOx
+	Button bb1 = new JoystickButton(buttonBox, 6);
+	Button bb2 = new JoystickButton(buttonBox, 4);
+	Button bb3 = new JoystickButton(buttonBox, 2);
+	Button bb4 = new JoystickButton(buttonBox, 5);
+	Button bb5 = new JoystickButton(buttonBox, 3);
+	Button bb6 = new JoystickButton(buttonBox, 1);
+	Button bb7 = new JoystickButton(buttonBox, 7);
+	Button bb8 = new JoystickButton(buttonBox, 9);
+	Button bb9 = new JoystickButton(buttonBox, 8);
+	
 	public OI() {	
 	lBump1.whenPressed(new ShiftHigh());
 	lTrig1.whenPressed(new ShiftLow());
 	rBump1.whenPressed(new AllDown());
 	rTrig1.whenPressed(new AllOmnis());
 	
-	rBump2.whileHeld(new SpitGear());
-	lBump2.whileHeld(new IntakeDown());
-	lTrig2.whileHeld(new IntakeUp());
-	rTrig2.whenPressed(new IntakeGear());
+//	lTrig2.whenPressed(new IntakeUp());
+//	lBump2.whenPressed(new IntakeDown());
 	
-	a2.whenPressed(new IntakePID(Robot.intake.getBottomPos())); 
-	b2.whenPressed(new IntakePID(Robot.intake.getIntakePos()));
-	x2.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
-	y2.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
+	bb9.whileHeld(new SpitGear());
+	bb6.whileHeld(new IntakeDown());
+	bb3.whileHeld(new IntakeUp());
+	bb8.whenPressed(new IntakeGear());
+	
+//	bb1.whenPressed(new IntakePID(Robot.intake.getBottomPos())); 
+//	bb2.whenPressed(new IntakePID(Robot.intake.getIntakePos()));
+//	bb4.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
+//	bb5.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
 	
 	//start.whenPressed(new SetBottomPos());
-	start.whenPressed(new Nudge(1));
 	clickRight2.whileHeld(new PrintEnc());
 	}
 	

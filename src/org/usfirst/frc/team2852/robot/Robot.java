@@ -20,7 +20,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static RobotMap robot = new RobotMap();
-	public static Timer timer = new Timer();
 
 	Command autonomousCommand;
 
@@ -37,7 +36,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
 		SmartDashboard.putData(drivetrain);
-		timer.start();
 	}
 
 	/**

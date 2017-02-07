@@ -11,6 +11,7 @@ public class RobotMap {
 	//Joy stick ports
 	public static int p_xbox1 = 0;
 	public static int p_xbox2 = 1;
+	public static int p_buttonBox = 2;
 	
 	//Actuator ports
 	public static int p_leftDrive1 = 3;

@@ -16,7 +16,6 @@ public class IntakeToPosition extends CommandGroup {
     		addSequential(new IntakePID(.92));
     	} else if (Robot.intake.getCurrentPosition() == 3 || Robot.intake.getCurrentPosition() == 2) {
     		addSequential(new IntakePID(4.7));
-    		addSequential(new Nudge(1));
     		if (targetPosition == 0) {
     			addSequential(new IntakePID(2.11));	
     		} 
@@ -25,11 +24,11 @@ public class IntakeToPosition extends CommandGroup {
     		}
     	} else if (targetPosition == 3) {
     		addSequential(new IntakePID(0.1));
-    		addSequential(new Nudge(-1));
+
     		addSequential(new IntakePID(.92));
     	} else if(targetPosition == 2) {
     		addSequential(new IntakePID(0.1));
-    		addSequential(new Nudge(-1));
+
     		addSequential(new IntakePID(3.45));
     	} else if(targetPosition == 1) {
     		addSequential(new IntakePID(2.08));

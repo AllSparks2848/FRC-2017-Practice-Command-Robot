@@ -15,7 +15,7 @@ public class SpitGear extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.intake.intake(1);
+    	Robot.intake.intake(.75);
     }
 
     // Called repeatedly when this Command is scheduled to run
