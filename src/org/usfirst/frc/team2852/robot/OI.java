@@ -1,26 +1,29 @@
 package org.usfirst.frc.team2852.robot;
 
-import org.usfirst.frc.team2852.robot.commands.AllDown;
-import org.usfirst.frc.team2852.robot.commands.AllOmnis;
-import org.usfirst.frc.team2852.robot.commands.IntakeDown;
-import org.usfirst.frc.team2852.robot.commands.IntakeGear;
-import org.usfirst.frc.team2852.robot.commands.IntakePID;
-import org.usfirst.frc.team2852.robot.commands.IntakeUp;
-import org.usfirst.frc.team2852.robot.commands.PIDShoot;
-import org.usfirst.frc.team2852.robot.commands.PrintEnc;
-import org.usfirst.frc.team2852.robot.commands.ShiftHigh;
-import org.usfirst.frc.team2852.robot.commands.ShiftLow;
-import org.usfirst.frc.team2852.robot.commands.SpitGear;
-import org.usfirst.team2852.robot.util.XboxTrigger;
+import org.usfirst.frc.team2852.intakeCommands.IntakeDown;
+import org.usfirst.frc.team2852.intakeCommands.IntakeGear;
+import org.usfirst.frc.team2852.intakeCommands.IntakePID;
+import org.usfirst.frc.team2852.intakeCommands.IntakeUp;
+import org.usfirst.frc.team2852.intakeCommands.Nudge;
+import org.usfirst.frc.team2852.intakeCommands.PrintEnc;
+import org.usfirst.frc.team2852.intakeCommands.SpitGear;
+import org.usfirst.frc.team2852.robot.driveCommands.AllDown;
+import org.usfirst.frc.team2852.robot.driveCommands.AllOmnis;
+import org.usfirst.frc.team2852.robot.driveCommands.ShiftHigh;
+import org.usfirst.frc.team2852.robot.driveCommands.ShiftLow;
+import org.usfirst.frc.team2852.robot.shooterCommands.ManualShoot;
+import org.usfirst.frc.team2852.robot.shooterCommands.PIDShoot;
+import org.usfirst.frc.team2852.robot.util.XboxTrigger;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class OI {
 	Joystick xbox1 = new Joystick(RobotMap.p_xbox1);
 	Joystick xbox2 = new Joystick(RobotMap.p_xbox2);
-	Joystick buttonBox = new Joystick(2);
+	Joystick buttonBox = new Joystick(RobotMap.p_buttonBox);
 	
 //	Controller 1
 	Button a1 = new JoystickButton(xbox1, 1);
@@ -76,14 +79,18 @@ public class OI {
 	bb3.whileHeld(new IntakeUp());
 	bb8.whenPressed(new IntakeGear());
 	
-	b2.whileHeld(new PIDShoot (1000));
+	//b2.whileHeld(new PIDShoot (400));
 	
 //	bb1.whenPressed(new IntakePID(Robot.intake.getBottomPos())); 
 //	bb2.whenPressed(new IntakePID(Robot.intake.getIntakePos()));
 //	bb4.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
 //	bb5.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
 	
+	bb7.whileHeld(new ManualShoot(1.0, 1.0));
+	
 	//start.whenPressed(new SetBottomPos());
+	
+	a2.whenPressed(new Nudge());
 	clickRight2.whileHeld(new PrintEnc());
 	}
 	

@@ -23,7 +23,7 @@ public class Intake extends PIDSubsystem {
 	public static double spitPos = 3.45;
 	public static double tuckPos = .92;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
-    Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
+    public Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     public Spark intakePivot = new Spark(RobotMap.p_intakePivot);
     DigitalInput breakbeam = new DigitalInput(0);
     public static AnalogInput absPosEncoder = new AnalogInput(RobotMap.p_absPosEncoder);
