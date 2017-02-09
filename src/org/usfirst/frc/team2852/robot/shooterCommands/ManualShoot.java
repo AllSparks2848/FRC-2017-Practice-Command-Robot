@@ -33,6 +33,7 @@ public class ManualShoot extends Command {
     protected boolean isFinished() {
     	System.out.println("Front Motor Speed: " + Shooter.shooterFrontEnc.getRate());
     	System.out.println("Back Motor Speed: " + Shooter.shooterFrontEnc.getRate());
+    	System.out.println("/n/n");
         return false;
     }
 

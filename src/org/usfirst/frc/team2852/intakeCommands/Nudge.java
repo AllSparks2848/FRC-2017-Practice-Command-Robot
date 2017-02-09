@@ -9,16 +9,18 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Nudge extends Command {
 
-    public Nudge() {
+	private int direction = 1;
+    public Nudge(int direction) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.intake);
+    	this.direction = direction;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.intake.timer.start();
-    	Robot.intake.intakePivot.set(1);
+    	Robot.intake.intakePivot.set(direction);
     }
 
     // Called repeatedly when this Command is scheduled to run

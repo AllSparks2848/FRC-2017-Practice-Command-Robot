@@ -11,6 +11,7 @@ import org.usfirst.frc.team2852.robot.driveCommands.AllDown;
 import org.usfirst.frc.team2852.robot.driveCommands.AllOmnis;
 import org.usfirst.frc.team2852.robot.driveCommands.ShiftHigh;
 import org.usfirst.frc.team2852.robot.driveCommands.ShiftLow;
+import org.usfirst.frc.team2852.robot.shooterCommands.ElevateAndShoot;
 import org.usfirst.frc.team2852.robot.shooterCommands.ManualShoot;
 import org.usfirst.frc.team2852.robot.shooterCommands.PIDShoot;
 import org.usfirst.frc.team2852.robot.util.XboxTrigger;
@@ -86,11 +87,11 @@ public class OI {
 //	bb4.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
 //	bb5.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
 	
-	bb7.whileHeld(new ManualShoot(1.0, 1.0));
+	bb7.whileHeld(new ElevateAndShoot());
 	
 	//start.whenPressed(new SetBottomPos());
 	
-	a2.whenPressed(new Nudge());
+	a2.whenPressed(new Nudge(1));
 	clickRight2.whileHeld(new PrintEnc());
 	}
 	

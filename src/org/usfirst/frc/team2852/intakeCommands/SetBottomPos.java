@@ -19,8 +19,7 @@ public class SetBottomPos extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	//Robot.intake.setBottomPos(100*(Robot.intake.getPot()-4.8));
-    	System.out.println("Bottom Position Set");
-    	System.out.println("Spit Position: " + (Robot.intake.getBottomPos()));
+    	System.out.println("Bottom Position Set at " + Robot.intake.getBottomPos());
     }
 
     // Called repeatedly when this Command is scheduled to run

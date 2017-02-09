@@ -18,10 +18,10 @@ public class Intake extends PIDSubsystem {
 	public static double p = .4;
 	public static double i = 0.1;
 	public static double d = 0;
-	public static double bottomPos = 2.11;
-	public static double intakePos = 2.0;
-	public static double spitPos = 3.45;
-	public static double tuckPos = .92;
+	public double bottomPos = 2.11;
+	public double intakePos = 2.0;
+	public double spitPos = 3.45;
+	public double tuckPos = .92;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     public Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     public Spark intakePivot = new Spark(RobotMap.p_intakePivot);
@@ -29,6 +29,11 @@ public class Intake extends PIDSubsystem {
     public static AnalogInput absPosEncoder = new AnalogInput(RobotMap.p_absPosEncoder);
     
     public double currentPosition = 0;
+    public double zeroPosition = 0;
+    public final double INTAKE_OFFSET = .03;
+    public final double SPIT_OFFSET = 3.41;
+    public final double TUCK_OFFSET = 5.94;
+    
     public Timer timer = new Timer();
 	
     public Intake() {
@@ -91,13 +96,31 @@ public class Intake extends PIDSubsystem {
     	return bottomPos;
     }
     
-//    public void setBottomPos(double newBottom) {
-//    	bottomPos = newBottom;
-//    	intakePos = .122 + bottomPos;
-//    	spitPos = .492 + bottomPos;
-//    	tuckPos = .732 + bottomPos;
-//    	
-//    }
+    public void setBottomPos(double newBottom) {
+    	bottomPos = newBottom;
+    	if(bottomPos < INTAKE_OFFSET) {
+    		zeroPosition = .5; //.5 means between 0 and 1
+    		intakePos = 4.75 - (INTAKE_OFFSET - bottomPos);
+    		spitPos = 4.75 - (SPIT_OFFSET - bottomPos);
+    		tuckPos = 4.75 - (TUCK_OFFSET - bottomPos);
+    	} else if(bottomPos < SPIT_OFFSET) {
+    		zeroPosition = 1.5;
+    		intakePos = 4.75 - INTAKE_OFFSET;
+    		spitPos = 4.75 - (SPIT_OFFSET - bottomPos);
+    		tuckPos = 4.75 - (TUCK_OFFSET - bottomPos);
+    	} else if(bottomPos < TUCK_OFFSET) {
+    		zeroPosition = 2.5;
+    		intakePos = 4.75 - INTAKE_OFFSET;
+    		spitPos = 4.75 - SPIT_OFFSET;
+    		tuckPos = 4.75 - (TUCK_OFFSET - bottomPos);
+    	} 
+//    	else {
+//    		intakePos = 4.75 - INTAKE_OFFSET;
+//    		spitPos = 4.75 - SPIT_OFFSET;
+//    		tuckPos = 4.75 - TUCK_OFFSET;
+//    	}
+    	
+    }
     
     public double getIntakePos() {
     	return intakePos;
