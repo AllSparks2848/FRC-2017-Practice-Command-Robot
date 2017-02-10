@@ -1,16 +1,14 @@
-package org.usfirst.frc.team2852.robot.driveCommands;
+package org.usfirst.frc.team2852.shooterCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class AllDown extends CommandGroup {
+public class ElevateAndShoot extends CommandGroup {
 
-    public AllDown() {
-        addParallel(new BackAllDown());
-        addParallel(new FrontAllDown());
-    	// Add Commands here:
+    public ElevateAndShoot() {
+        // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -26,5 +24,7 @@ public class AllDown extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addParallel(new Elevate());
+    	addParallel(new ManualShoot(1, 1));
     }
 }

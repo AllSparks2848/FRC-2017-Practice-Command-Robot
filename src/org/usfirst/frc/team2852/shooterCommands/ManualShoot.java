@@ -1,37 +1,45 @@
-package org.usfirst.frc.team2852.robot.driveCommands;
+package org.usfirst.frc.team2852.shooterCommands;
 
 import org.usfirst.frc.team2852.robot.Robot;
+import org.usfirst.frc.team2852.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ArcadeDrive extends Command {
+public class ManualShoot extends Command {
 
-    public ArcadeDrive() {
+	private double powerFront = 0;
+	private double powerBack = 0;
+    public ManualShoot(double powerInner, double powerOuter) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drivetrain);
+    	requires(Robot.shooter);
+    	this.powerFront = powerInner;
+    	this.powerBack = powerOuter;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.shooter.shoot(powerFront, powerBack);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(Robot.oi.getLeftJoystick(), Robot.oi.getRightJoystick());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	System.out.println("Front Motor Speed: " + Shooter.shooterFrontEnc.getRate());
+    	System.out.println("Back Motor Speed: " + Shooter.shooterFrontEnc.getRate());
+    	System.out.println("/n/n");
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivetrain.setPowerZero();
+    	Robot.shooter.stopShoot();
     }
 
     // Called when another command which requires one or more of the same

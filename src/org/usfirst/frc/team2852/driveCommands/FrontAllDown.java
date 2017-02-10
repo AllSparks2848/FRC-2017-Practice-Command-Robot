@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2852.robot.commands;
+package org.usfirst.frc.team2852.driveCommands;
 
 import org.usfirst.frc.team2852.robot.Robot;
 
@@ -7,16 +7,15 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PrintEnc extends Command {
+public class FrontAllDown extends Command {
 
-    public PrintEnc() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.drivetrain);
+    public FrontAllDown() {
+        requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drivetrain.frontAllDown();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -25,8 +24,7 @@ public class PrintEnc extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

@@ -1,10 +1,9 @@
 package org.usfirst.frc.team2852.robot.subsystems;
 
+import org.usfirst.frc.team2852.driveCommands.ArcadeDrive;
 import org.usfirst.frc.team2852.robot.RobotMap;
-import org.usfirst.frc.team2852.robot.driveCommands.ArcadeDrive;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;

@@ -1,16 +1,16 @@
-package org.usfirst.frc.team2852.robot.commands;
+package org.usfirst.frc.team2852.driveCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class AllOmnis extends CommandGroup {
+public class AllDown extends CommandGroup {
 
-    public AllOmnis() {
-    	addParallel(new BackOmnisDown());
-        addParallel(new FrontOmnisDown());
-        // Add Commands here:
+    public AllDown() {
+        addParallel(new BackAllDown());
+        addParallel(new FrontAllDown());
+    	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.

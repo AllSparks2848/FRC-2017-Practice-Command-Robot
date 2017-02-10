@@ -1,25 +1,21 @@
 package org.usfirst.frc.team2852.robot;
 
+import org.usfirst.frc.team2852.driveCommands.AllDown;
+import org.usfirst.frc.team2852.driveCommands.AllOmnis;
+import org.usfirst.frc.team2852.driveCommands.ShiftHigh;
+import org.usfirst.frc.team2852.driveCommands.ShiftLow;
 import org.usfirst.frc.team2852.intakeCommands.IntakeDown;
 import org.usfirst.frc.team2852.intakeCommands.IntakeGear;
-import org.usfirst.frc.team2852.intakeCommands.IntakePID;
 import org.usfirst.frc.team2852.intakeCommands.IntakeUp;
 import org.usfirst.frc.team2852.intakeCommands.Nudge;
 import org.usfirst.frc.team2852.intakeCommands.PrintEnc;
 import org.usfirst.frc.team2852.intakeCommands.SpitGear;
-import org.usfirst.frc.team2852.robot.driveCommands.AllDown;
-import org.usfirst.frc.team2852.robot.driveCommands.AllOmnis;
-import org.usfirst.frc.team2852.robot.driveCommands.ShiftHigh;
-import org.usfirst.frc.team2852.robot.driveCommands.ShiftLow;
-import org.usfirst.frc.team2852.robot.shooterCommands.ElevateAndShoot;
-import org.usfirst.frc.team2852.robot.shooterCommands.ManualShoot;
-import org.usfirst.frc.team2852.robot.shooterCommands.PIDShoot;
 import org.usfirst.frc.team2852.robot.util.XboxTrigger;
+import org.usfirst.frc.team2852.shooterCommands.ElevateAndShoot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class OI {
 	Joystick xbox1 = new Joystick(RobotMap.p_xbox1);

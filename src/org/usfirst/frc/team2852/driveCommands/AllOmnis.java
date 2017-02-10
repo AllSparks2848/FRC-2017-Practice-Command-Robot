@@ -1,13 +1,15 @@
-package org.usfirst.frc.team2852.robot.shooterCommands;
+package org.usfirst.frc.team2852.driveCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class ElevateAndShoot extends CommandGroup {
+public class AllOmnis extends CommandGroup {
 
-    public ElevateAndShoot() {
+    public AllOmnis() {
+    	addParallel(new BackOmnisDown());
+        addParallel(new FrontOmnisDown());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,7 +26,5 @@ public class ElevateAndShoot extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addParallel(new Elevate());
-    	addParallel(new ManualShoot(1, 1));
     }
 }

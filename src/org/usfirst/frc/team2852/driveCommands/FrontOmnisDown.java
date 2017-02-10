@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2852.robot.driveCommands;
+package org.usfirst.frc.team2852.driveCommands;
 
 import org.usfirst.frc.team2852.robot.Robot;
 
@@ -7,14 +7,15 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class BackAllDown extends Command {
+public class FrontOmnisDown extends Command {
 
-    public BackAllDown() {
-    	requires(Robot.drivetrain);
+    public FrontOmnisDown() {
+        requires(Robot.drivetrain);
     }
 
+    // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drivetrain.backAllDown();
+    	Robot.drivetrain.frontOmnisDown();
     }
 
     // Called repeatedly when this Command is scheduled to run
