@@ -7,27 +7,24 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArcadeDrive extends Command {
+public class QuesoDrive extends Command {
 
-	@Override
-	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-/*
-    public ArcadeDrive() {
+    public QuesoDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(Robot.oi.getLeftJoystick(), Robot.oi.getRightJoystick());
+    	
+    	Robot.drivetrain.arcadeDrive(Robot.mQuesoDriveHelper.quesoDrive(Robot.oi.getThrottle(), Robot.oi.getTurn(), Robot.oi.getQuickTurn()).leftMotor,Robot.mQuesoDriveHelper.quesoDrive(Robot.oi.getThrottle(), Robot.oi.getTurn(), Robot.oi.getQuickTurn()).rightMotor);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,5 +42,5 @@ public class ArcadeDrive extends Command {
     protected void interrupted() {
     	end();
     }
-    */
 }
+

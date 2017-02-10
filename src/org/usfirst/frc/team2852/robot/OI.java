@@ -90,9 +90,18 @@ public class OI {
 	a2.whenPressed(new Nudge(1));
 	clickRight2.whileHeld(new PrintEnc());
 	}
+	public double getThrottle(){
+		return xbox1.getRawAxis(1);
+	}
+	public double getTurn(){
+		return xbox1.getRawAxis(4);
+	}
 	
 	public double getLeftJoystick() {
 		return xbox1.getRawAxis(1);
+	}
+	public boolean getQuickTurn() {
+		return xbox1.getRawButton(button);
 	}
 	
 	public double getRightJoystick() {

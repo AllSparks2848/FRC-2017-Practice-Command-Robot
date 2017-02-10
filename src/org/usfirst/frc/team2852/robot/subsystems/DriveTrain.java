@@ -92,6 +92,10 @@ public class DriveTrain extends PIDSubsystem {
     	drive1.arcadeDrive(-left, -right);
     	drive2.arcadeDrive(-left, -right);
     }
+    public void quesoDrive(double left, double right){
+    	drive1.arcadeDrive(-left, -right);
+    	drive2.arcadeDrive(-left, -right);
+    }
     
     public void setPowerZero(){
     	drive1.setLeftRightMotorOutputs(0, 0);;

@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static Intake intake = new Intake();
 	public static Shooter shooter = new Shooter();
 	public static Climber climber = new Climber();
+	public static QuesoDriveHelper mQuesoDriveHelper = new QuesoDriveHelper();
 
 	/**
 	 * This function is run when the robot is first started up and should be

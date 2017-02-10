@@ -1,49 +1,45 @@
-package org.usfirst.frc.team2852.driveCommands;
+package org.usfirst.frc.team2852.visionCommands;
 
 import org.usfirst.frc.team2852.robot.Robot;
+import org.usfirst.frc.team2852.robot.vision.VisionServer;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ArcadeDrive extends Command {
+public class Vision_TrackLift extends Command {
 
-	@Override
-	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-/*
-    public ArcadeDrive() {
+    public Vision_TrackLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
+    	
+    	VisionServer visionServer = VisionServer.getInstance();
+    	visionServer.setTargetLift();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(Robot.oi.getLeftJoystick(), Robot.oi.getRightJoystick());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivetrain.setPowerZero();
+    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
+    	
     }
-    */
 }
