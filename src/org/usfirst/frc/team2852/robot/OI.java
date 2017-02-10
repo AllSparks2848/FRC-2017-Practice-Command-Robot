@@ -10,8 +10,8 @@ import org.usfirst.frc.team2852.intakeCommands.IntakeUp;
 import org.usfirst.frc.team2852.intakeCommands.Nudge;
 import org.usfirst.frc.team2852.intakeCommands.PrintEnc;
 import org.usfirst.frc.team2852.intakeCommands.SpitGear;
-import org.usfirst.frc.team2852.robot.util.XboxTrigger;
 import org.usfirst.frc.team2852.shooterCommands.ElevateAndShoot;
+import org.usfirst.team2852.robot.util.XboxTrigger;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
