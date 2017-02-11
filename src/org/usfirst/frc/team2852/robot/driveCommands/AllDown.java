@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AllDown extends CommandGroup {
 
     public AllDown() {
-        addParallel(new BackAllDown());
-        addParallel(new FrontAllDown());
+        addSequential(new BackAllDown());
+        addSequential(new FrontAllDown());
     	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

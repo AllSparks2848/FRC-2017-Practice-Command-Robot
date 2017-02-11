@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AllOmnis extends CommandGroup {
 
     public AllOmnis() {
-    	addParallel(new BackOmnisDown());
-        addParallel(new FrontOmnisDown());
+    	addSequential(new BackOmnisDown());
+        addSequential(new FrontOmnisDown());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

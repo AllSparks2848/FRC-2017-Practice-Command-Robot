@@ -5,6 +5,7 @@ import org.usfirst.frc.team2852.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 /**
@@ -16,12 +17,13 @@ public class Shooter extends PIDSubsystem {
 	public static double d = 0;
     public static Spark shooterBack = new Spark(RobotMap.p_shooterBack);
     public static Spark shooterFront = new Spark(RobotMap.p_shooterFront);
-    public static Spark shooterElevator = new Spark(RobotMap.p_elevator);
     
     public static Encoder shooterFrontEnc = new Encoder(RobotMap.p_shooterFrontEncA, RobotMap.p_shooterFrontEncB);
     public static Encoder shooterBackEnc = new Encoder(RobotMap.p_shooterBackEncA, RobotMap.p_shooterBackEncB);
     
     private double gain = 1;
+    
+    public Timer shootTime = new Timer();
     
 
 	public Shooter() {
@@ -46,12 +48,6 @@ public class Shooter extends PIDSubsystem {
     public void shoot(double powerInner, double powerOuter) {
     	shooterFront.set(powerInner);
     	shooterBack.set(powerOuter);
-    }
-    public void elevator(){
-    	shooterElevator.set(1);
-    }
-    public void elevatorStop(){
-    	shooterElevator.set(0);
     }
     
     public void stopShoot() {

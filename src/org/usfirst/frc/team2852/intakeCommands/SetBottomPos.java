@@ -4,6 +4,7 @@ import org.usfirst.frc.team2852.robot.Robot;
 import org.usfirst.frc.team2852.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -18,8 +19,13 @@ public class SetBottomPos extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//Robot.intake.setBottomPos(100*(Robot.intake.getPot()-4.8));
-    	System.out.println("Bottom Position Set at " + Robot.intake.getBottomPos());
+    	Robot.intake.setBottomPos();
+    	SmartDashboard.putNumber("Potentiometer Position", Robot.intake.getPot());
+    	SmartDashboard.putNumber("Bottom Position", Robot.intake.bottomPos);
+    	SmartDashboard.putNumber("Intake Position", Robot.intake.intakePos);
+    	SmartDashboard.putNumber("Spit Position", Robot.intake.spitPos);
+    	SmartDashboard.putNumber("Tuck Position", Robot.intake.tuckPos);
+    	SmartDashboard.putNumber("Tuck Position", Robot.intake.zeroPosition);
     }
 
     // Called repeatedly when this Command is scheduled to run

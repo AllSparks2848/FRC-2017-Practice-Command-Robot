@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2852.robot;
 
 import org.usfirst.frc.team2852.robot.subsystems.Climber;
+import org.usfirst.frc.team2852.robot.subsystems.Conveyor;
 import org.usfirst.frc.team2852.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2852.robot.subsystems.Intake;
 import org.usfirst.frc.team2852.robot.subsystems.Shooter;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static Intake intake = new Intake();
 	public static Shooter shooter = new Shooter();
+	public static Conveyor conveyor = new Conveyor();
 	public static Climber climber = new Climber();
 
 	/**
@@ -40,6 +42,10 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
 		SmartDashboard.putData(drivetrain);
+		SmartDashboard.putData(intake);
+		SmartDashboard.putData(conveyor);
+		SmartDashboard.putData(shooter);
+		SmartDashboard.putData(climber);
 	}
 
 	/**

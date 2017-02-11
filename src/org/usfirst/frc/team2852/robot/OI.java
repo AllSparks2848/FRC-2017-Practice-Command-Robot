@@ -1,16 +1,21 @@
 package org.usfirst.frc.team2852.robot;
 
+import org.usfirst.frc.team2852.climberCommands.Climb;
 import org.usfirst.frc.team2852.intakeCommands.IntakeDown;
 import org.usfirst.frc.team2852.intakeCommands.IntakeGear;
 import org.usfirst.frc.team2852.intakeCommands.IntakePID;
 import org.usfirst.frc.team2852.intakeCommands.IntakeUp;
 import org.usfirst.frc.team2852.intakeCommands.Nudge;
 import org.usfirst.frc.team2852.intakeCommands.PrintEnc;
+import org.usfirst.frc.team2852.intakeCommands.SetBottomPos;
 import org.usfirst.frc.team2852.intakeCommands.SpitGear;
 import org.usfirst.frc.team2852.robot.driveCommands.AllDown;
 import org.usfirst.frc.team2852.robot.driveCommands.AllOmnis;
+import org.usfirst.frc.team2852.robot.driveCommands.BackAllDown;
+import org.usfirst.frc.team2852.robot.driveCommands.BackOmnisDown;
 import org.usfirst.frc.team2852.robot.driveCommands.ShiftHigh;
 import org.usfirst.frc.team2852.robot.driveCommands.ShiftLow;
+import org.usfirst.frc.team2852.robot.shooterCommands.Convey;
 import org.usfirst.frc.team2852.robot.shooterCommands.ElevateAndShoot;
 import org.usfirst.frc.team2852.robot.shooterCommands.ManualShoot;
 import org.usfirst.frc.team2852.robot.shooterCommands.PIDShoot;
@@ -87,12 +92,17 @@ public class OI {
 //	bb4.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
 //	bb5.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
 	
-	bb7.whileHeld(new ElevateAndShoot());
+	bb1.whenPressed(new Convey());
+	bb2.whenPressed(new ManualShoot(-.5,.5, 3));
+	bb7.whenPressed(new ElevateAndShoot());
 	
 	//start.whenPressed(new SetBottomPos());
 	
-	a2.whenPressed(new Nudge(1));
-	clickRight2.whileHeld(new PrintEnc());
+	//a2.whenPressed(new SetBottomPos());
+	b2.whenPressed(new SetBottomPos());
+	x2.whileHeld(new Convey());
+	y2.whenPressed(new ManualShoot(-.5,.5, 3)); // power, power,  time
+	a2.whileHeld(new PrintEnc());
 	}
 	
 	public double getLeftJoystick() {

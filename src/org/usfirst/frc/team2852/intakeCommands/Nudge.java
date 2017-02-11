@@ -35,6 +35,8 @@ public class Nudge extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.intake.stopActuate();
+    	Robot.intake.timer.stop();
+    	Robot.intake.timer.reset();
     }
 
     // Called when another command which requires one or more of the same

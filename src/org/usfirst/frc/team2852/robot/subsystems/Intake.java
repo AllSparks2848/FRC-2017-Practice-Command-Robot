@@ -25,7 +25,7 @@ public class Intake extends PIDSubsystem {
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     public Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     public Spark intakePivot = new Spark(RobotMap.p_intakePivot);
-    DigitalInput breakbeam = new DigitalInput(0);
+    DigitalInput breakbeam = new DigitalInput(RobotMap.p_breakbeam);
     public static AnalogInput absPosEncoder = new AnalogInput(RobotMap.p_absPosEncoder);
     
     public double currentPosition = 0;
@@ -96,8 +96,8 @@ public class Intake extends PIDSubsystem {
     	return bottomPos;
     }
     
-    public void setBottomPos(double newBottom) {
-    	bottomPos = newBottom;
+    public void setBottomPos() {
+    	bottomPos = absPosEncoder.getVoltage();
     	if(bottomPos < INTAKE_OFFSET) {
     		zeroPosition = .5; //.5 means between 0 and 1
     		intakePos = 4.75 - (INTAKE_OFFSET - bottomPos);

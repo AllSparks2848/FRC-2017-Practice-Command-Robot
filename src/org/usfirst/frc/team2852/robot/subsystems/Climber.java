@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Climber extends Subsystem {
 
-    public Spark climb1 = new Spark(RobotMap.p_climb1);
-    public Spark climb2 = new Spark(RobotMap.p_climb2);
+    Spark climb1 = new Spark(RobotMap.p_climb1);
+    Spark climb2 = new Spark(RobotMap.p_climb2);
     
 
     public void initDefaultCommand() {
@@ -20,8 +20,8 @@ public class Climber extends Subsystem {
     }
     
     public void climb() {
-    	climb1.set(1);
-    	climb2.set(1);
+    	climb1.set(.75);
+    	climb2.set(-.75);
     }
     
     public void stopClimbing() {
