@@ -18,10 +18,10 @@ public class Intake extends PIDSubsystem {
 	public static double p = .4;
 	public static double i = 0.1;
 	public static double d = 0;
-	public double bottomPos = 2.11;
-	public double intakePos = 2.0;
-	public double spitPos = 3.45;
-	public double tuckPos = .92;
+	public double bottomPos = .95;
+	public double intakePos = .87;
+	public double spitPos = 2.63;
+	public double tuckPos = 1.38;
 	public PowerDistributionPanel pdp = new PowerDistributionPanel();
     public Spark intakeRoller = new Spark(RobotMap.p_intakeRoller);
     public Spark intakePivot = new Spark(RobotMap.p_intakePivot);
@@ -30,9 +30,9 @@ public class Intake extends PIDSubsystem {
     
     public double currentPosition = 0;
     public double zeroPosition = 0;
-    public final double INTAKE_OFFSET = .03;
-    public final double SPIT_OFFSET = 3.41;
-    public final double TUCK_OFFSET = 5.94;
+    public final double INTAKE_OFFSET = .08;
+    public final double SPIT_OFFSET = 3.22;
+    public final double TUCK_OFFSET = 4.47;
     
     public Timer timer = new Timer();
 	
