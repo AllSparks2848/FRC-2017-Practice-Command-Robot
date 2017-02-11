@@ -6,7 +6,9 @@ import org.usfirst.team2852.robot.util.Rotation2d;
 
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Spark;
@@ -39,7 +41,9 @@ public class DriveTrain extends PIDSubsystem {
 	    private int rightEncSign = -1;
 	    
 	    private boolean isHighGear = false;
-	   
+	    
+	    Encoder leftEncoder = new Encoder(RobotMap.p_leftEncoderA, RobotMap.p_leftEncoderB, leftReverseEnc, EncodingType.k4X);
+	    Encoder rightEncoder = new Encoder(RobotMap.p_rightEncoderA, RobotMap.p_rightEncoderB, rightReverseEnc, EncodingType.k4X);
 	    
 	    public double kPHigh = 0, kIHigh = 0, kDHigh = 0;
 	    public double kPLow = 0, kILow = 0, kDLow = 0;
@@ -98,7 +102,7 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void setPowerZero(){
-    	drive1.setLeftRightMotorOutputs(0, 0);;
+    	drive1.setLeftRightMotorOutputs(0, 0);
     	drive2.setLeftRightMotorOutputs(0, 0);
     }
     

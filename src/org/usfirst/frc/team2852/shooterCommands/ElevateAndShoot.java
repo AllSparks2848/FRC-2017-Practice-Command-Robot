@@ -25,6 +25,6 @@ public class ElevateAndShoot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addParallel(new Elevate());
-    	addParallel(new ManualShoot(1, 1));
+    	addParallel(new ManualShoot(-1, 1));
     }
 }

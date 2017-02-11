@@ -39,13 +39,17 @@ public class RobotMap {
 	public static int p_driveshifter2 = 5;
 	
 	//Sensor ports
-//	public static int p_leftEncoderA = 0;
-//	public static int p_leftEncoderB = 1;
-//	public static int p_rightEncoderA = 3;
-//	public static int p_rightEncoderB = 2;
+	public static int p_leftEncoderA = 0;
+	public static int p_leftEncoderB = 1;
+	public static int p_rightEncoderA = 3;
+	public static int p_rightEncoderB = 2;
 	public static int p_absPosEncoder = 4;
-	public static int p_shooterFrontEncA = 4;
+	public static int p_shooterFrontEncA = 5;
 	public static int p_shooterFrontEncB = 6;
 	public static int p_shooterBackEncA = 7;
 	public static int p_shooterBackEncB = 8;
+	
+	//Digital Input
+	public static int p_breakbeam = 0;
+	
 }

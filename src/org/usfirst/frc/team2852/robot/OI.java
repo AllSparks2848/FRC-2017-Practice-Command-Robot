@@ -10,7 +10,9 @@ import org.usfirst.frc.team2852.intakeCommands.IntakeUp;
 import org.usfirst.frc.team2852.intakeCommands.Nudge;
 import org.usfirst.frc.team2852.intakeCommands.PrintEnc;
 import org.usfirst.frc.team2852.intakeCommands.SpitGear;
+import org.usfirst.frc.team2852.shooterCommands.Elevate;
 import org.usfirst.frc.team2852.shooterCommands.ElevateAndShoot;
+import org.usfirst.frc.team2852.shooterCommands.ManualShoot;
 import org.usfirst.team2852.robot.util.XboxTrigger;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -83,6 +85,8 @@ public class OI {
 //	bb4.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
 //	bb5.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
 	
+	bb1.whileHeld(new Elevate());
+	bb2.whileHeld(new ManualShoot(-1,1));
 	bb7.whileHeld(new ElevateAndShoot());
 	
 	//start.whenPressed(new SetBottomPos());
@@ -100,9 +104,9 @@ public class OI {
 	public double getLeftJoystick() {
 		return xbox1.getRawAxis(1);
 	}
-	public boolean getQuickTurn() {
-		return xbox1.getRawButton(button);
-	}
+//	public boolean getQuickTurn() {
+//		return xbox1.getRawButton(button);
+//	}
 	
 	public double getRightJoystick() {
 		return xbox1.getRawAxis(4);
