@@ -20,12 +20,11 @@ public class SetBottomPos extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.intake.setBottomPos();
-    	SmartDashboard.putNumber("Potentiometer Position", Robot.intake.getPot());
+    	SmartDashboard.putNumber("Potentiometer Position", Intake.intakeEnc.get());
     	SmartDashboard.putNumber("Bottom Position", Robot.intake.bottomPos);
     	SmartDashboard.putNumber("Intake Position", Robot.intake.intakePos);
     	SmartDashboard.putNumber("Spit Position", Robot.intake.spitPos);
     	SmartDashboard.putNumber("Tuck Position", Robot.intake.tuckPos);
-    	SmartDashboard.putNumber("Tuck Position", Robot.intake.zeroPosition);
     }
 
     // Called repeatedly when this Command is scheduled to run

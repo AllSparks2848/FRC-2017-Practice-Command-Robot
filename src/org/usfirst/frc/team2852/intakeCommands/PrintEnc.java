@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2852.intakeCommands;
 
 import org.usfirst.frc.team2852.robot.Robot;
+import org.usfirst.frc.team2852.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -15,17 +16,17 @@ public class PrintEnc extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
+    	System.out.println("Potentiometer Reading: " + Intake.intakeEnc.get());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
+    	System.out.println("Potentiometer Reading: " + Intake.intakeEnc.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
+    	System.out.println("Potentiometer Reading: " + Intake.intakeEnc.get());
         return false;
     }
 

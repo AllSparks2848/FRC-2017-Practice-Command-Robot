@@ -4,6 +4,7 @@ import org.usfirst.frc.team2852.climberCommands.Climb;
 import org.usfirst.frc.team2852.intakeCommands.IntakeDown;
 import org.usfirst.frc.team2852.intakeCommands.IntakeGear;
 import org.usfirst.frc.team2852.intakeCommands.IntakePID;
+import org.usfirst.frc.team2852.intakeCommands.IntakeToPosition;
 import org.usfirst.frc.team2852.intakeCommands.IntakeUp;
 import org.usfirst.frc.team2852.intakeCommands.Nudge;
 import org.usfirst.frc.team2852.intakeCommands.PrintEnc;
@@ -85,15 +86,14 @@ public class OI {
 	bb3.whileHeld(new IntakeUp());
 	bb8.whenPressed(new IntakeGear());
 	
-	//b2.whileHeld(new PIDShoot (400));
+	bb1.whenPressed(new IntakePID(0)); 
+	bb2.whenPressed(new IntakePID(74));
+	bb4.whenPressed(new IntakePID(1));
+	bb5.whenPressed(new IntakePID(100));
 	
-//	bb1.whenPressed(new IntakePID(Robot.intake.getBottomPos())); 
-//	bb2.whenPressed(new IntakePID(Robot.intake.getIntakePos()));
-//	bb4.whenPressed(new IntakePID(Robot.intake.getSpitPos()));
-//	bb5.whenPressed(new IntakePID(Robot.intake.getTuckPos()));
 	
-	bb1.whenPressed(new Convey());
-	bb2.whenPressed(new ManualShoot(-.5,.5, 3));
+//	bb1.whenPressed(new Convey());
+//	bb2.whenPressed(new ManualShoot(-.5,.5, 3));
 	bb7.whenPressed(new ElevateAndShoot());
 	
 	//start.whenPressed(new SetBottomPos());

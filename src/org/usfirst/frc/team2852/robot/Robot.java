@@ -41,11 +41,6 @@ public class Robot extends IterativeRobot {
 		//autonomousCommand = new AutonGearLeft();
 		oi = new OI();
 		SmartDashboard.putData(Scheduler.getInstance());
-		SmartDashboard.putData(drivetrain);
-		SmartDashboard.putData(intake);
-		SmartDashboard.putData(conveyor);
-		SmartDashboard.putData(shooter);
-		SmartDashboard.putData(climber);
 	}
 
 	/**
@@ -84,7 +79,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		System.out.println("\n");
-		SmartDashboard.putNumber("Current Pot val", Intake.absPosEncoder.getVoltage());
+		SmartDashboard.putNumber("Current Enc val", Intake.intakeEnc.get());
 //		SmartDashboard.putNumber("LD1", Robot.drivetrain.leftDrive1.get());
 //		SmartDashboard.putNumber("LD2", Robot.drivetrain.leftDrive2.get());
 //		SmartDashboard.putNumber("LD3", Robot.drivetrain.leftDrive3.get());

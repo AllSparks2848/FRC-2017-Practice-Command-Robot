@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2852.intakeCommands;
 
 import org.usfirst.frc.team2852.robot.Robot;
+import org.usfirst.frc.team2852.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -27,9 +28,9 @@ public class IntakePID extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("Potentiometer Reading: " + Robot.intake.getPot());
+    	System.out.println("Encoder Reading: " + Intake.intakeEnc.get());
     	System.out.println("Motor Power: " + Robot.intake.getPivot());
-        return (Math.abs((setpoint - Robot.intake.getPot())) < .08);
+        return (Math.abs((setpoint - Intake.intakeEnc.get())) <= 1);
     }
 
     // Called once after isFinished returns true
