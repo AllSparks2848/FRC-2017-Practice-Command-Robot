@@ -1,4 +1,5 @@
 package org.usfirst.frc.team2852.robot;
+import org.usfirst.frc.team2852.robot.Robot;
 
 import org.usfirst.frc.team2852.robot.subsystems.Climber;
 import org.usfirst.frc.team2852.robot.subsystems.DriveTrain;
@@ -22,6 +23,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static RobotMap robot = new RobotMap();
+	public static Robot bot = new Robot();
 
 	Command autonomousCommand;
 
@@ -59,7 +61,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void autonomousInit() {
-		// schedule the autonomous command (example)
+		autonChooser.switchReader();
 			
 	}
 
