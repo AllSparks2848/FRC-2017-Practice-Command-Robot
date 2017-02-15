@@ -86,10 +86,10 @@ public class OI {
 	bb3.whileHeld(new IntakeUp());
 	bb8.whenPressed(new IntakeGear());
 	
-	bb1.whenPressed(new IntakePID(0)); 
-	bb2.whenPressed(new IntakePID(74));
-	bb4.whenPressed(new IntakePID(1));
-	bb5.whenPressed(new IntakePID(100));
+	bb1.whenPressed(new IntakePID(Robot.intake.bottomPos)); 
+	bb2.whenPressed(new IntakePID(Robot.intake.spitPos));
+	bb4.whenPressed(new IntakePID(Robot.intake.intakePos));
+	bb5.whenPressed(new IntakePID(Robot.intake.tuckPos));
 	
 	
 //	bb1.whenPressed(new Convey());
@@ -99,7 +99,9 @@ public class OI {
 	//start.whenPressed(new SetBottomPos());
 	
 	//a2.whenPressed(new SetBottomPos());
-	b2.whenPressed(new SetBottomPos());
+	a2.whenPressed(new SetBottomPos());
+	
+	b2.whileHeld(new Climb());
 	x2.whileHeld(new Convey());
 	y2.whenPressed(new ManualShoot(-.5,.5, 3)); // power, power,  time
 	a2.whileHeld(new PrintEnc());

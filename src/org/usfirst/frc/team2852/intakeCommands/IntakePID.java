@@ -30,6 +30,10 @@ public class IntakePID extends Command {
     protected boolean isFinished() {
     	System.out.println("Encoder Reading: " + Intake.intakeEnc.get());
     	System.out.println("Motor Power: " + Robot.intake.getPivot());
+    	if(Intake.intakeEnc.get()<=0)
+    		return true;
+    	if(Intake.intakeEnc.get()>=105)
+    		return true;
         return (Math.abs((setpoint - Intake.intakeEnc.get())) <= 1);
     }
 

@@ -20,8 +20,8 @@ public class Climber extends Subsystem {
     }
     
     public void climb() {
-    	climb1.set(.75);
-    	climb2.set(-.75);
+    	climb1.set(1);
+    	climb2.set(-1);
     }
     
     public void stopClimbing() {
