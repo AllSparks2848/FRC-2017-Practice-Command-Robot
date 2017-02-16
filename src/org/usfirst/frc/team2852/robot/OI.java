@@ -104,7 +104,6 @@ public class OI {
 	b2.whileHeld(new Climb());
 	x2.whileHeld(new Convey());
 	y2.whenPressed(new ManualShoot(-.5,.5, 3)); // power, power,  time
-	a2.whileHeld(new PrintEnc());
 	}
 	
 	public double getLeftJoystick() {

@@ -107,8 +107,9 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopPeriodic() {
-		System.out.println("\n");
 		SmartDashboard.putNumber("Current Enc val", Intake.intakeEnc.get());
+		SmartDashboard.putNumber("Current Enc val", DriveTrain.leftEncoder.getDistance());
+		SmartDashboard.putNumber("Current Enc val", DriveTrain.rightEncoder.getDistance());
 //		SmartDashboard.putNumber("LD1", Robot.drivetrain.leftDrive1.get());
 //		SmartDashboard.putNumber("LD2", Robot.drivetrain.leftDrive2.get());
 //		SmartDashboard.putNumber("LD3", Robot.drivetrain.leftDrive3.get());
