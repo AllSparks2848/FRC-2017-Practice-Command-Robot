@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *
  */
 public class Intake extends PIDSubsystem {
-	public static double p = .03;
+	public static double p = .025;
 	public static double i = 0.01;
 	public static double d = 0;
 	public int bottomPos = 0;
@@ -85,10 +85,11 @@ public class Intake extends PIDSubsystem {
 	}
 
 	public void setBottomPos() {
-		bottomPos = intakeEnc.get();
-		intakePos = bottomPos + INTAKE_OFFSET;
-		spitPos = bottomPos + SPIT_OFFSET;
-		tuckPos = bottomPos + TUCK_OFFSET;
+		intakeEnc.reset();
+//		bottomPos = intakeEnc.get();
+//		intakePos = bottomPos + INTAKE_OFFSET;
+//		spitPos = bottomPos + SPIT_OFFSET;
+//		tuckPos = bottomPos + TUCK_OFFSET;
 	}
 
 	public double getIntakePos() {
